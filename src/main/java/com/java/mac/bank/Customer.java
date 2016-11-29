@@ -11,10 +11,6 @@ public class Customer implements  Runnable
 
     private Bank bank;
 
-    public Customer()
-    {
-    }
-
     public Customer(int queuingNumber, BusinessType businessType, Bank bank)
     {
         this.queuingNumber = queuingNumber;
@@ -27,23 +23,14 @@ public class Customer implements  Runnable
         return queuingNumber;
     }
 
-    public void setQueuingNumber(int queuingNumber)
-    {
-        this.queuingNumber = queuingNumber;
-    }
-
     public BusinessType getBusinessType()
     {
         return businessType;
     }
 
-    public void setBusinessType(BusinessType businessType)
-    {
-        this.businessType = businessType;
-    }
-
     public void run()
     {
         this.bank.register(this);
+
     }
 }
