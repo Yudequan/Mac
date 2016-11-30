@@ -37,7 +37,7 @@ public class Customer implements  Runnable
     @Override
     public String toString()
     {
-        return "客户信息{" +
+        return "客户信息 {" +
                 "排队号 = " + queuingNumber +
                 ", 业务类型 = " + businessType.getBusinessName() +
                 '}';
