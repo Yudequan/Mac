@@ -1,7 +1,10 @@
 package com.java.mac;
 
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by yudequan on 16/09/29.
@@ -24,5 +27,6 @@ public class Demo
         DataInputStream dis = new DataInputStream(is);
         System.out.print(dis.readInt());
         dis.close();
+
     }
 }
