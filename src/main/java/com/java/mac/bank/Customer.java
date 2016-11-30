@@ -33,4 +33,13 @@ public class Customer implements  Runnable
         this.bank.register(this);
 
     }
+
+    @Override
+    public String toString()
+    {
+        return "客户信息{" +
+                "排队号 = " + queuingNumber +
+                ", 业务类型 = " + businessType.getBusinessName() +
+                '}';
+    }
 }

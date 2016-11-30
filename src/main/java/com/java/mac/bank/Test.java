@@ -29,7 +29,7 @@ public class Test
         Thread customer;
         Random random = new Random();
 
-        for (int i = 0; i < 500; i++)
+        for (int i = 1; i <= 500; i++)
         {
             try
             {

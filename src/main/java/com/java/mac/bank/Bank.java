@@ -1,6 +1,5 @@
 package com.java.mac.bank;
 
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -13,7 +12,7 @@ public class Bank
 
     public synchronized void register(Customer customer)
     {
-        System.out.println("==============公告栏==================");
+        System.out.println("==============公告栏开始==================");
         System.out.println("当前排队人数：" + this.queue.size());
         // queue.offer(customer);
         try
@@ -25,6 +24,7 @@ public class Bank
         }
         System.out.println("[" + customer.getQueuingNumber() + "]" + "挂号成功！" + "业务类型是：" + customer.getBusinessType()
                 .getBusinessName());
+        System.out.println("##############公告栏结束##################");
         System.out.println();
         this.notifyAll();
     }
@@ -33,7 +33,7 @@ public class Bank
     {
         while (this.queue.isEmpty())
         {
-            System.out.println("当前排队人数为0，柜台[" + Thread.currentThread().getName() + "]处于空闲状态！");
+            System.err.println("当前排队人数为0，柜台[" + Thread.currentThread().getName() + "]处于空闲状态！");
             try
             {
                 this.wait();

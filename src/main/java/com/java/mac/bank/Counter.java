@@ -1,7 +1,9 @@
 package com.java.mac.bank;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 /**
  * Created by yudequan on 16/11/29.
@@ -9,9 +11,13 @@ import java.util.List;
 public class Counter implements Runnable
 {
 
-    private List<Customer> busniessHistory = new ArrayList<Customer>();
+    private static final String REPORT_FILE_PATH = "/Users/yudequan/";
 
     private Bank bank;
+
+    OutputStream os;
+
+    PrintWriter pw;
 
     public Counter(Bank bank)
     {
@@ -20,10 +26,21 @@ public class Counter implements Runnable
 
     public void run()
     {
+        String file = REPORT_FILE_PATH + Thread.currentThread().getName() + ".log";
+        try
+        {
+            os = new FileOutputStream(file, true);
+            pw = new PrintWriter(os, true);
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
         while (true)
         {
-            this.busniessHistory.add(this.business());
+            pw.println(this.business());
         }
+
     }
 
     public Customer business()
